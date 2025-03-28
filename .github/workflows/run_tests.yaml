@@ -7,7 +7,7 @@ on:
 
 jobs:
   Consul-Pipeline:
-    uses: Netcracker/qubership-test-pipelines/.github/workflows/consul_demo.yaml@main
+    uses: Netcracker/qubership-test-pipelines/.github/workflows/consul-test.yaml@restricted_install
     with:
-      branch: '${{ github.head_ref || github.ref_name }}'
+      service_branch: 'improvement/run_tests'
 
