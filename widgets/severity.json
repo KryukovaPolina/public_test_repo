@@ -1,20 +1,20 @@
 [ {
-  "uid" : "b7f7316344d95c94",
+  "uid" : "ef338869204825f3",
   "name" : "Проверка деления на ноль",
   "time" : {
-    "start" : 1747657717332,
-    "stop" : 1747657717332,
+    "start" : 1747660753647,
+    "stop" : 1747660753647,
     "duration" : 0
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "d232515a76d34813",
+  "uid" : "c93016eb5e01d699",
   "name" : "Проверка сложения",
   "time" : {
-    "start" : 1747657717330,
-    "stop" : 1747657717330,
-    "duration" : 0
+    "start" : 1747660753645,
+    "stop" : 1747660753646,
+    "duration" : 1
   },
   "status" : "passed",
   "severity" : "normal"

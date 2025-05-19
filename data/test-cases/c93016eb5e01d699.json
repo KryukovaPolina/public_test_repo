@@ -1,12 +1,12 @@
 {
-  "uid" : "b7f7316344d95c94",
-  "name" : "Проверка деления на ноль",
-  "fullName" : "tests.test_example.TestCalculator#test_division_by_zero",
-  "historyId" : "4e911fafcf0d8ba1bd07e868468f59c1",
+  "uid" : "c93016eb5e01d699",
+  "name" : "Проверка сложения",
+  "fullName" : "tests.test_example.TestCalculator#test_addition",
+  "historyId" : "e9df1ee10927897348203b19d8f27445",
   "time" : {
-    "start" : 1747657717332,
-    "stop" : 1747657717332,
-    "duration" : 0
+    "start" : 1747660753645,
+    "stop" : 1747660753646,
+    "duration" : 1
   },
   "status" : "passed",
   "flaky" : false,
@@ -15,10 +15,10 @@
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
-      "name" : "Попытка деления 5 на 0",
+      "name" : "Сложить 2 и 3",
       "time" : {
-        "start" : 1747657717332,
-        "stop" : 1747657717332,
+        "start" : 1747660753646,
+        "stop" : 1747660753646,
         "duration" : 0
       },
       "status" : "passed",
@@ -30,38 +30,32 @@
       "shouldDisplayMessage" : false,
       "hasContent" : false
     }, {
-      "name" : "Проверить сообщение об ошибке",
+      "name" : "Проверить результат",
       "time" : {
-        "start" : 1747657717332,
-        "stop" : 1747657717332,
+        "start" : 1747660753646,
+        "stop" : 1747660753646,
         "duration" : 0
       },
       "status" : "passed",
       "steps" : [ ],
-      "attachments" : [ {
-        "uid" : "c71a07d9a6f35356",
-        "name" : "Текст ошибки",
-        "source" : "c71a07d9a6f35356.txt",
-        "type" : "text/plain",
-        "size" : 16
-      } ],
+      "attachments" : [ ],
       "parameters" : [ ],
       "stepsCount" : 0,
-      "attachmentsCount" : 1,
+      "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
-      "hasContent" : true
+      "hasContent" : false
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
     "stepsCount" : 2,
-    "attachmentsCount" : 1,
+    "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
   },
   "afterStages" : [ ],
   "labels" : [ {
     "name" : "story",
-    "value" : "Негативные сценарии"
+    "value" : "Позитивные сценарии"
   }, {
     "name" : "feature",
     "value" : "Тесты для калькулятора"
@@ -76,10 +70,10 @@
     "value" : "TestCalculator"
   }, {
     "name" : "host",
-    "value" : "fv-az1340-255"
+    "value" : "fv-az1755-36"
   }, {
     "name" : "thread",
-    "value" : "1989-MainThread"
+    "value" : "1973-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -103,6 +97,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "b7f7316344d95c94.json",
+  "source" : "c93016eb5e01d699.json",
   "parameterValues" : [ ]
 }

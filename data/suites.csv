@@ -1,3 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon May 19 12:28:37 GMT 2025","Mon May 19 12:28:37 GMT 2025","0","tests","test_example","TestCalculator","","","Проверка сложения",""
-"passed","Mon May 19 12:28:37 GMT 2025","Mon May 19 12:28:37 GMT 2025","0","tests","test_example","TestCalculator","","","Проверка деления на ноль",""
+"passed","Mon May 19 13:19:13 GMT 2025","Mon May 19 13:19:13 GMT 2025","0","tests","test_example","TestCalculator","","","Проверка деления на ноль",""
+"passed","Mon May 19 13:19:13 GMT 2025","Mon May 19 13:19:13 GMT 2025","1","tests","test_example","TestCalculator","","","Проверка сложения",""
