@@ -1,0 +1,92 @@
+name: Tests with Allure Report
+
+on:
+  push
+
+permissions:
+  contents: write  # Разрешить запись в репозиторий
+  pages: write     # Разрешить публикацию на GitHub Pages
+  id-token: write  # Для OIDC (если нужно)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install pytest allure-pytest
+
+      - name: Run tests
+        run: |
+          pytest tests/test_example.py -v --alluredir=allure-results
+          echo "GITHUB_JOB=$GITHUB_JOB" >> allure-results/environment.properties
+          ls -la allure-results/
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Allure results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@v1
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
+
+      - name: Prepare gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages  # Переключение на ветку gh-pages
+          path: gh-pages
+
+      - name: Sync report to gh-pages
+        run: |
+          rm -rf gh-pages/*  # Очистка предыдущего отчёта
+          cp -R allure-report/* gh-pages/
+
+      - name: Commit and push to gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update Allure Report"
+          git push origin gh-pages
+
+  deploy:
+    needs: report
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages
+
+#      - name: Get test job logs
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: |
+#          gh auth login --with-token <<< "$GITHUB_TOKEN"
+#          gh run view ${{ github.run_id }} --log --job test > allure-results/test-job-logs.txt
+
