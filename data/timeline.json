@@ -1,0 +1,39 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "fv-az1340-255",
+    "children" : [ {
+      "name" : "1989-MainThread",
+      "children" : [ {
+        "name" : "Проверка сложения",
+        "uid" : "d232515a76d34813",
+        "parentUid" : "6927ea4a19cb9053ec6eee184e8eeb8a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1747657717330,
+          "stop" : 1747657717330,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Проверка деления на ноль",
+        "uid" : "b7f7316344d95c94",
+        "parentUid" : "6927ea4a19cb9053ec6eee184e8eeb8a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1747657717332,
+          "stop" : 1747657717332,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6927ea4a19cb9053ec6eee184e8eeb8a"
+    } ],
+    "uid" : "6a6475e89bcdf3907d062bf98024abdf"
+  } ],
+  "name" : "timeline"
+}

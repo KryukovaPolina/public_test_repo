@@ -1,0 +1,43 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Тесты для калькулятора",
+    "children" : [ {
+      "name" : "Позитивные сценарии",
+      "children" : [ {
+        "name" : "Проверка сложения",
+        "uid" : "d232515a76d34813",
+        "parentUid" : "2373c877c0d67e63f2f2bd606bef5efc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1747657717330,
+          "stop" : 1747657717330,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2373c877c0d67e63f2f2bd606bef5efc"
+    }, {
+      "name" : "Негативные сценарии",
+      "children" : [ {
+        "name" : "Проверка деления на ноль",
+        "uid" : "b7f7316344d95c94",
+        "parentUid" : "43c982b2f663b6673f655645eda9dbeb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1747657717332,
+          "stop" : 1747657717332,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "43c982b2f663b6673f655645eda9dbeb"
+    } ],
+    "uid" : "c3f9eabcf7e0d5619bb16ab281a23f53"
+  } ],
+  "name" : "behaviors"
+}

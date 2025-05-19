@@ -1,0 +1,21 @@
+[ {
+  "uid" : "b7f7316344d95c94",
+  "name" : "Проверка деления на ноль",
+  "time" : {
+    "start" : 1747657717332,
+    "stop" : 1747657717332,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d232515a76d34813",
+  "name" : "Проверка сложения",
+  "time" : {
+    "start" : 1747657717330,
+    "stop" : 1747657717330,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

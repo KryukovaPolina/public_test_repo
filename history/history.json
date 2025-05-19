@@ -1,0 +1,42 @@
+{
+  "4e911fafcf0d8ba1bd07e868468f59c1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b7f7316344d95c94",
+      "reportUrl" : "https://KryukovaPolina.github.io/public_test_repo/3/#testresult/b7f7316344d95c94",
+      "status" : "passed",
+      "time" : {
+        "start" : 1747657717332,
+        "stop" : 1747657717332,
+        "duration" : 0
+      }
+    } ]
+  },
+  "e9df1ee10927897348203b19d8f27445" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d232515a76d34813",
+      "reportUrl" : "https://KryukovaPolina.github.io/public_test_repo/3/#testresult/d232515a76d34813",
+      "status" : "passed",
+      "time" : {
+        "start" : 1747657717330,
+        "stop" : 1747657717330,
+        "duration" : 0
+      }
+    } ]
+  }
+}
