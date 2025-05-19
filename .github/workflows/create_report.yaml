@@ -1,0 +1,62 @@
+name: Tests with Allure Report
+
+on:
+  push
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install pytest allure-pytest
+
+      - name: Run tests
+        run: |
+          pytest tests/test_example.py -v --alluredir=allure-results
+          echo "GITHUB_JOB=$GITHUB_JOB" >> allure-results/environment.properties
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Allure results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+
+      - name: Upload Report Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          name: github-pages
+          retention-days: 1
+
+  deploy:
+    needs: report
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
