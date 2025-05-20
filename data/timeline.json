@@ -1,39 +1,39 @@
 {
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "children" : [ {
-    "name" : "fv-az1755-36",
+    "name" : "fv-az1909-38",
     "children" : [ {
-      "name" : "1973-MainThread",
+      "name" : "2045-MainThread",
       "children" : [ {
         "name" : "Проверка сложения",
-        "uid" : "c93016eb5e01d699",
-        "parentUid" : "518edba7ad4b643868d18462bd382ac0",
+        "uid" : "5148e80442619815",
+        "parentUid" : "c13552649d714ba305a88799a673b350",
         "status" : "passed",
         "time" : {
-          "start" : 1747660753645,
-          "stop" : 1747660753646,
-          "duration" : 1
+          "start" : 1747723067669,
+          "stop" : 1747723067669,
+          "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       }, {
         "name" : "Проверка деления на ноль",
-        "uid" : "ef338869204825f3",
-        "parentUid" : "518edba7ad4b643868d18462bd382ac0",
+        "uid" : "20d3e72986296664",
+        "parentUid" : "c13552649d714ba305a88799a673b350",
         "status" : "passed",
         "time" : {
-          "start" : 1747660753647,
-          "stop" : 1747660753647,
+          "start" : 1747723067671,
+          "stop" : 1747723067671,
           "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "518edba7ad4b643868d18462bd382ac0"
+      "uid" : "c13552649d714ba305a88799a673b350"
     } ],
-    "uid" : "964d3787772ae88a6c974b7281fbf106"
+    "uid" : "a7322524f97ee090f8b82af09133c29c"
   } ],
   "name" : "timeline"
 }

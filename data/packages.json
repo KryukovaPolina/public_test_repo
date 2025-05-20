@@ -4,25 +4,25 @@
     "name" : "tests.test_example",
     "children" : [ {
       "name" : "Проверка сложения",
-      "uid" : "c93016eb5e01d699",
+      "uid" : "5148e80442619815",
       "parentUid" : "d41b485e6ae74c08f28d57b63af1a517",
       "status" : "passed",
       "time" : {
-        "start" : 1747660753645,
-        "stop" : 1747660753646,
-        "duration" : 1
+        "start" : 1747723067669,
+        "stop" : 1747723067669,
+        "duration" : 0
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
       "name" : "Проверка деления на ноль",
-      "uid" : "ef338869204825f3",
+      "uid" : "20d3e72986296664",
       "parentUid" : "d41b485e6ae74c08f28d57b63af1a517",
       "status" : "passed",
       "time" : {
-        "start" : 1747660753647,
-        "stop" : 1747660753647,
+        "start" : 1747723067671,
+        "stop" : 1747723067671,
         "duration" : 0
       },
       "flaky" : false,

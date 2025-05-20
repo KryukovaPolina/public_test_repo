@@ -2,9 +2,9 @@
   "name" : "GitHub Actions",
   "type" : "github",
   "url" : "https://KryukovaPolina.github.io/public_test_repo",
-  "buildOrder" : 4,
-  "buildName" : "GitHub Actions Run #15114084698",
-  "buildUrl" : "https://github.com/KryukovaPolina/public_test_repo/actions/runs/15114084698",
+  "buildOrder" : 5,
+  "buildName" : "GitHub Actions Run #15130600422",
+  "buildUrl" : "https://github.com/KryukovaPolina/public_test_repo/actions/runs/15130600422",
   "reportName" : "Allure Report with history",
-  "reportUrl" : "https://KryukovaPolina.github.io/public_test_repo/4"
+  "reportUrl" : "https://KryukovaPolina.github.io/public_test_repo/5"
 } ]

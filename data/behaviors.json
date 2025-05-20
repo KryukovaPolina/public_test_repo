@@ -6,13 +6,13 @@
       "name" : "Позитивные сценарии",
       "children" : [ {
         "name" : "Проверка сложения",
-        "uid" : "c93016eb5e01d699",
+        "uid" : "5148e80442619815",
         "parentUid" : "2373c877c0d67e63f2f2bd606bef5efc",
         "status" : "passed",
         "time" : {
-          "start" : 1747660753645,
-          "stop" : 1747660753646,
-          "duration" : 1
+          "start" : 1747723067669,
+          "stop" : 1747723067669,
+          "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
@@ -23,12 +23,12 @@
       "name" : "Негативные сценарии",
       "children" : [ {
         "name" : "Проверка деления на ноль",
-        "uid" : "ef338869204825f3",
+        "uid" : "20d3e72986296664",
         "parentUid" : "43c982b2f663b6673f655645eda9dbeb",
         "status" : "passed",
         "time" : {
-          "start" : 1747660753647,
-          "stop" : 1747660753647,
+          "start" : 1747723067671,
+          "stop" : 1747723067671,
           "duration" : 0
         },
         "flaky" : false,
