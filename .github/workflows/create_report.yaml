@@ -1,4 +1,4 @@
-name: Tests with Allure Report
+name: Tests with Allure Report and History
 
 on:
   push
@@ -17,37 +17,100 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pytest allure-pytest
+        run: |
+          pip install pytest allure-pytest
+          # Установка Java (необходима для Allure)
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jre
 
       - name: Run tests
         run: |
+          # Создаем директорию для результатов
+          mkdir -p allure-results
           pytest tests/test_example.py -v --alluredir=allure-results
-          echo "GITHUB_JOB=$GITHUB_JOB" >> allure-results/environment.properties
+          echo "GITHUB_SHA=$GITHUB_SHA" >> allure-results/environment.properties
+          ls -la allure-results
 
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: allure-results
-          path: allure-results/
+          path: allure-results
 
   report:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Download Allure results
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: allure-results
-          path: allure-results/
+          path: allure-results
 
-      - name: Upload Report Artifact
-        uses: actions/upload-pages-artifact@v3
+      # Проверяем наличие результатов
+      - name: Check results
+        run: |
+          echo "Files in allure-results:"
+          ls -la allure-results
+          if [ ! -d "allure-results" ] || [ -z "$(ls -A allure-results)" ]; then
+            echo "Error: allure-results is empty!"
+            exit 1
+          fi
+
+      # Установка Allure CLI
+      - name: Install Allure
+        run: |
+          ALLURE_VERSION=2.24.0
+          curl -LO "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$ALLURE_VERSION/allure-commandline-$ALLURE_VERSION.tgz"
+          tar -xzf "allure-commandline-$ALLURE_VERSION.tgz"
+          echo "ALLURE_HOME=$PWD/allure-$ALLURE_VERSION" >> $GITHUB_ENV
+          echo "$PWD/allure-$ALLURE_VERSION/bin" >> $GITHUB_PATH
+
+      - name: Verify Allure installation
+        run: |
+          $ALLURE_HOME/bin/allure --version
+
+      - name: Generate Allure Report
+        run: |
+          # Создаем директорию для отчета
+          REPORT_DIR="report-$(date +%Y%m%d-%H%M%S)"
+          mkdir -p "$REPORT_DIR"
+          
+          # Генерируем отчет
+          $ALLURE_HOME/bin/allure generate \
+            --clean \
+            -o "$REPORT_DIR" \
+            "allure-results"
+          
+          echo "REPORT_DIR=$REPORT_DIR" >> $GITHUB_ENV
+          echo "https://kryukovapolina.github.io/public_test_repo/$REPORT_DIR/" > "$REPORT_DIR/.nojekyll"
+
+      - name: Generate Directory Listing
+        uses: yKicchan/generate-directory-listing-action@v1
         with:
           path: .
-          name: github-pages
+          output-path: public
+          base-url: https://kryukovapolina.github.io/public_test_repo/
+          exclude: |
+            .gitignore
+            .github
+            .DS_Store
+            allure-results
+            allure-commandline-*.tgz
+            allure-*
+
+      - name: Add Current Report to Listing
+        run: |
+          # Добавляем ссылку на текущий отчёт
+          echo "<li><a href=\"${{ env.REPORT_DIR }}\">${{ env.REPORT_DIR }}</a> - $(date)</li>" >> public/index.html
+          
+          # Копируем index.html в директорию отчёта
+          cp public/index.html "${{ env.REPORT_DIR }}/index.html" || true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
           retention-days: 1
 
   deploy:
