@@ -17,21 +17,23 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pytest allure-pytest
+        run: |
+          pip install pytest allure-pytest
+          sudo apt-get install allure
 
       - name: Run tests
         run: |
           pytest tests/test_example.py -v --alluredir=allure-results
-          echo "GITHUB_JOB=$GITHUB_JOB" >> allure-results/environment.properties
+          echo "GITHUB_SHA=$GITHUB_SHA" >> allure-results/environment.properties
 
       - name: Upload Allure results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
-          path: allure-results/
+          path: allure-results
 
   report:
     needs: test
@@ -41,13 +43,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: allure-results
-          path: allure-results/
+          path: allure-results
+
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@v1
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
 
       - name: Upload Report Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-          name: github-pages
+          path: allure-report
           retention-days: 1
 
   deploy:
